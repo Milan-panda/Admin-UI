@@ -2,14 +2,14 @@ import React from "react";
 import {FcPrevious, FcNext} from "react-icons/fc"
 
 const Pagination = ({
-  totalPosts,
-  postsPerPage,
+  totalData,
+  dataPerPage,
   setCurrentPage,
   currentPage,
 }) => {
   let pages = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
     pages.push(i);
   }
   return (

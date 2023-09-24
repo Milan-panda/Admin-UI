@@ -10,7 +10,7 @@ const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredItems, setFilteredItems] = useState([]);
   const [currentPage, setCurrentPage]=useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [dataPerPage, setDataPerPage] = useState(10);
 
   //fetching data
   const fetchData = async () => {
@@ -67,10 +67,10 @@ const Home = () => {
 
 
   //Pagination
-  const lastPostIndex = currentPage * postsPerPage
-  const firstPostIndex = lastPostIndex - postsPerPage
-  const currentPosts = allData.slice(firstPostIndex, lastPostIndex);
-  const filteredPost = filteredItems.slice(firstPostIndex, lastPostIndex)
+  const lastUserIndex = currentPage * dataPerPage
+  const firstUserIndex = lastUserIndex - dataPerPage
+  const currentPosts = allData.slice(firstUserIndex, lastUserIndex);
+  const filteredPost = filteredItems.slice(firstUserIndex, lastUserIndex)
 
   return (
     <div className="my-3">
@@ -98,7 +98,7 @@ const Home = () => {
                     Delete Selected
                   </button>
                   <div>
-                    <Pagination totalPosts={filteredItems.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+                    <Pagination totalData={filteredItems.length} dataPerPage={dataPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
                   </div>
                 </div>
               </div>
@@ -115,7 +115,7 @@ const Home = () => {
                   Delete Selected
                 </button>
                 <div>
-                  <Pagination totalPosts={allData.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+                  <Pagination totalData={allData.length} dataPerPage={dataPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
                 </div>
               </div>
             </div>
